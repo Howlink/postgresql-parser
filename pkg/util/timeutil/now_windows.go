@@ -35,6 +35,7 @@ func init() {
 // subtracting `time.Time`s.
 func Now() time.Time {
 	var ft windows.Filetime
-	windows.GetSystemTimePreciseAsFileTime(&ft)
+	windows.GetSystemTimeAsFileTime(&ft)
+	//windows.GetSystemTimePreciseAsFileTime(&ft)
 	return time.Unix(0, ft.Nanoseconds()).UTC()
 }
